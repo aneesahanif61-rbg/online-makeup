@@ -1,18 +1,25 @@
+
 const express = require("express");
 const router = express.Router();
 
-// Controllers ko sahi se import karein (Bina .js extension ke)
-const { registerUser, loginUser } = require("../Controllers/UserControllers");
+const {
+  registerUser,
+  loginUser,
+  getUsers
+} = require("../Controllers/UserControllers");
 
-// Test route
+// Test Route
 router.get("/", (req, res) => {
-  res.send("User Route Working!");
+  res.send("User Route Working Successfully!");
 });
 
-// REGISTER ROUTE
+// Register User
 router.post("/register", registerUser);
 
-// LOGIN ROUTE
+// Login User
 router.post("/login", loginUser);
+
+// Get All Users
+router.get("/all", getUsers);
 
 module.exports = router;
